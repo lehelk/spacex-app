@@ -7,6 +7,7 @@ import 'ag-grid-community/dist/styles/ag-theme-alpine.css'
 
 import DetailsModal from '../DetailsModal/DetailsModal'
 import useDetailsModal from './hooks/useDetailsModal'
+import Loader from '../Loader/Loader'
 
 const Launches: FunctionComponent = () => {
     const { loading, error, data } = useLoadLaunches()
@@ -14,6 +15,7 @@ const Launches: FunctionComponent = () => {
 
     return (
         <>
+            <Loader open={loading} />
             <DetailsModal {...modalProps} />
             <div className="ag-theme-alpine" style={{height: 400, width: '100%'}}>
                 <AgGridReact
